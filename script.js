@@ -78,6 +78,7 @@ function addToCart(id) {
   state.cart[id].qty++;
   state.cart[id].subtotal = state.cart[id].qty * prod.precio;
   renderCart();
+  showToast(`${prod.nombre} agregado al carrito 🛒`);
 }
 
 function changeQty(id, delta) {
@@ -151,6 +152,16 @@ function buildWhatsAppMessage() {
   const text = `Hola! Quiero hacer este pedido en *${BRAND}*:%0A%0A${lines.join("%0A")}%0A%0ATotal: *${fmt(total)}*%0A%0A`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500); // se oculta después de 2.5s
+}
+
 
 // =================== INIT ===================
 document.addEventListener("click", (e) => {
