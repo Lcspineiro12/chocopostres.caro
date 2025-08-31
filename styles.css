@@ -1,86 +1,328 @@
-:root{
-  --primary:#8b5cf6; /* violeta */
-  --primary-600:#7c3aed;
-  --pink:#f472b6;
-  --bg:#fffafc;
-  --ink:#1f2937;
-  --muted:#6b7280;
-  --card:#ffffff;
-  --shadow: 0 10px 30px rgba(139,92,246,.18);
-  --radius: 18px;
+
+/* =========================
+   Chocopostres.Caro — CSS
+   Cascada tradicional, fácil de editar
+   ========================= */
+
+/* 1) Reset básico */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+/* 2) Variables simples (si querés editar rápido) */
+:root {
+  --bg: #fdeef4;         /* rosa pastel fondo */
+  --text: #2d2d2d;       /* texto principal */
+  --muted: #6b6b6b;      /* texto secundario */
+  --primary: #e56ca9;    /* rosa intenso */
+  --primary-2: #bb6bd9;  /* lila acento */
+  --card: #ffffff;       /* tarjeta */
+  --line: #fbcfe8;       /* bordes suaves */
+  --ok: #12a454;
+  --danger: #dc2626;
+  --shadow: 0 10px 25px rgba(0,0,0,.06);
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; color:var(--ink); background:var(--bg)}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.container{width:min(1100px, 92%); margin-inline:auto}
 
-/* Header */
-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #f1e9ff}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--pink));display:grid;place-items:center;color:#fff;font-weight:800;box-shadow:var(--shadow)}
-.brand h1{font-size:1.05rem;letter-spacing:.4px;margin:0}
-.brand small{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
-.nav-actions{display:flex;align-items:center;gap:12px}
-.btn{padding:10px 14px;border-radius:12px;border:1px solid transparent;display:inline-flex;align-items:center;gap:8px;font-weight:600;cursor:pointer}
-.btn.primary{background:var(--primary);color:#fff;box-shadow:var(--shadow)}
-.btn.ghost{border-color:#e9ddff;background:#fff}
+/* 3) Global */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.45;
+}
 
-/* Hero */
-.hero{padding:44px 0 22px}
-.hero-card{background: radial-gradient(1200px 600px at 10% -10%, #f5ecff, transparent),
-            radial-gradient(800px 500px at 90% 10%, #ffe7f5, transparent), var(--card); border:1px solid #efe7ff; border-radius:var(--radius); padding:28px; display:grid; grid-template-columns:1.25fr .75fr; gap:18px; align-items:center; box-shadow: var(--shadow)}
-.kicker{color:var(--primary-600); font-weight:700; letter-spacing:.1em; text-transform:uppercase; font-size:.72rem}
-.hero h2{font-size:2rem; line-height:1.1; margin:.35rem 0 .6rem}
-.hero p{color:var(--muted); margin:0 0 16px}
-.hero .cta{display:flex; gap:10px; flex-wrap:wrap}
-.tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px dashed #e9ddff;padding:8px 10px;border-radius:12px;color:#6b5b99;font-size:.85rem}
+/* Contenedor */
+.container { width: 92%; max-width: 1140px; margin: 0 auto; }
 
-/* Filters */
-.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:26px 0}
-.chip{padding:8px 12px;border-radius:999px;border:1px solid #e9ddff;background:#fff;color:#5b4c8f;cursor:pointer;font-weight:600}
-.chip.active{background:linear-gradient(135deg,var(--primary),var(--pink));color:#fff;border-color:transparent;box-shadow:var(--shadow)}
-.search{flex:1;min-width:220px;background:#fff;border:1px solid #e9ddff;border-radius:12px;padding:10px 12px}
+/* 4) Barra de aviso */
+.topbar {
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 10px;
+  font-size: .95rem;
+}
 
-/* Grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media (max-width:900px){.hero-card{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.grid{grid-template-columns:1fr}}
+/* 5) Encabezado */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 3px 12px rgba(0,0,0,.03);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 12px 0;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .logo {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffd6ea);
+  border: 2px solid var(--line);
+}
+.brand .title { font-weight: 800; font-size: 1.1rem; }
+.menu { display: flex; align-items: center; gap: 14px; }
+.menu a {
+  padding: 8px 12px; border-radius: 999px;
+  transition: background .2s ease, color .2s ease;
+}
+.menu a:hover { background: var(--bg); }
+.menu .btn-cart {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary);
+  color: #fff; padding: 8px 14px; border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+.menu .btn-cart:hover { filter: brightness(.95); }
 
-.card{background:#fff;border:1px solid #efe7ff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.thumb{aspect-ratio:4/3;background:linear-gradient(135deg,#fff,#f7f0ff);display:grid;place-items:center;color:#7a5cf0;font-weight:800;font-size:1.6rem}
-.card-body{padding:14px}
-.card h3{margin:.1rem 0 .35rem;font-size:1.05rem}
-.muted{color:var(--muted);font-size:.9rem}
-.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
-select, input[type="number"]{padding:8px 10px;border-radius:10px;border:1px solid #e9ddff;background:#fff}
-.price{margin-left:auto;font-weight:800;color:#4338ca}
+/* 6) Hero */
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #fff, var(--bg));
+  padding: 48px 0 24px;
+}
+.hero-inner {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px;
+  align-items: center;
+}
+.hero h1 { font-size: clamp(1.9rem, 3vw, 3rem); margin: 0 0 12px; }
+.hero p { color: var(--muted); margin-bottom: 18px; }
+.hero .cta {
+  display: inline-flex; gap: 10px; align-items: center;
+  background: var(--primary);
+  color: #fff; padding: 12px 18px; border-radius: 12px;
+  font-weight: 700; box-shadow: var(--shadow);
+}
+.hero .cta.secondary { background: #fff; color: var(--primary); border: 2px solid var(--primary); }
+.hero .mock {
+  min-height: 240px; border-radius: 18px; background:
+    radial-gradient(circle at 20% 30%, #fff, #ffe6f3 40%, #ffd0eb 70%);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.mock {
+  width: 70%;     /* ocupa la mitad del contenedor */
+  max-width: 400px;  /* nunca más grande de 400px */
+  height: auto;
+}
 
-.add{margin-top:10px;display:flex;align-items:center;gap:10px}
-.btn.addcart{background:linear-gradient(135deg,var(--primary),var(--pink));color:#fff;border:none;padding:10px 12px;border-radius:12px;box-shadow:var(--shadow)}
 
-/* Floating cart */
-.cart-fab{position:fixed;right:18px;bottom:18px;background:#111827;color:#fff;padding:12px 16px;border-radius:16px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer;z-index:60}
-.cart-fab .count{background:#fff;color:#111827;border-radius:10px;padding:2px 7px;font-weight:800}
+/* 7) Filtros */
+.filters {
+  position: sticky; top: 78px; z-index: 40;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.filters .wrap { display: flex; flex-wrap: wrap; gap: 10px; padding: 10px 0; }
+.filter-btn {
+  padding: 8px 12px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--line);
+  cursor: pointer; font-weight: 600;
+}
+.filter-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
-/* Modal */
-.modal{position:fixed;inset:0;display:none}
-.modal.open{display:grid;place-items:center}
-.backdrop{position:absolute;inset:0;background:rgba(17,24,39,.6)}
-.sheet{position:relative;background:#fff;border-radius:18px;width:min(720px,96%);max-height:86vh;overflow:auto;box-shadow:var(--shadow);border:1px solid #efe7ff}
-.sheet header{position:sticky;top:0;background:#fff;border-bottom:1px solid #efe7ff}
-.sheet .header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-.sheet .body{padding:18px}
-.cart-item{display:grid;grid-template-columns:1fr .9fr .7fr .5fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed #f0e8ff}
-.cart-item:last-child{border-bottom:none}
-.total{display:flex;align-items:center;justify-content:space-between;padding-top:12px;margin-top:12px;border-top:1px solid #efe7ff;font-weight:800}
-.sheet footer{padding:12px 18px;border-top:1px solid #efe7ff;display:flex;gap:10px;flex-wrap:wrap}
+/* 8) Grilla de productos */
+.products { padding: 24px 0 10px; }
+.grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat( auto-fill, minmax(220px, 1fr) );
+}
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  overflow: hidden; box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.card .thumb {
+  aspect-ratio: 1 / 1; background: linear-gradient(135deg, #fff, #ffeaf4);
+  display: grid; place-items: center; color: var(--muted);
+  font-weight: 700; font-size: .95rem;
+}
+.card img {
+  width: 100%;
+  height: 300px;
+  aspect-ratio: 1/1;  /* cuadrado perfecto */
+  object-fit: cover;
+}
 
-/* Footer */
-footer{margin:34px 0 50px; border-top:1px solid #efe7ff}
-.foot{display:grid;gap:10px;padding-top:16px;color:#6b7280}
-.foot a.link{color:var(--primary-600);font-weight:700}
+.card .info { padding: 12px; display: grid; gap: 6px; }
+.card .name { font-weight: 800; }
+.card .desc { font-size: .93rem; color: var(--muted); }
+.price-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+}
+.price { font-size: 1.05rem; font-weight: 800; }
+.add { padding: 8px 12px; border-radius: 10px; background: var(--primary); color: #fff; font-weight: 700; }
+.add:hover { filter: brightness(.95); }
 
-/* WhatsApp bubble */
-.wa{position:fixed;left:18px;bottom:18px;background:#25D366;color:#fff;padding:12px 14px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+/* 9) Badges confianza */
+.badges {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 14px; margin: 22px 0; box-shadow: var(--shadow);
+}
+.badge { text-align: center; }
+.badge h4 { margin: 6px 0 4px; font-size: 1rem; }
+.badge p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+/* 10) Secciones simples */
+.section { padding: 32px 0; }
+.section h2 { font-size: 1.6rem; margin-bottom: 10px; }
+.section p { color: var(--muted); }
+.section .card-simple {
+  background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* 11) Carrito (modal) */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.28); display: none;
+}
+.modal {
+  position: fixed; right: 12px; top: 78px;
+  width: min(420px, 92%); background: #fff; border: 1px solid var(--line);
+  border-radius: 16px; box-shadow: var(--shadow);
+  display: none; flex-direction: column; max-height: 78vh;
+}
+.modal header {
+  position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--line); box-shadow: none;
+}
+.modal .head {
+  display: flex; align-items: center; justify-content: space-between; padding: 12px 14px;
+}
+.modal .content { padding: 12px 14px; overflow: auto; display: grid; gap: 10px; }
+.cart-item {
+  display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center;
+  border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px;
+}
+.qty { display: inline-flex; align-items: center; gap: 8px; }
+.qty button { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); }
+.cart-total { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-top: 1px dashed var(--line); font-weight: 800; }
+.modal .actions { padding: 12px 14px; display: grid; gap: 10px; border-top: 1px solid var(--line); }
+.btn { padding: 10px 14px; border-radius: 10px; font-weight: 800; text-align: center; }
+.btn.whatsapp { background: #25D366; color: #fff; }
+.btn.clear { background: #fff; border: 2px solid var(--danger); color: var(--danger); }
+.btn.close { background: #fff; border: 2px solid var(--line); }
+.empty { text-align: center; color: var(--muted); padding: 12px 0; }
+
+/* 12) Footer */
+footer { background: #fff; border-top: 1px solid var(--line); margin-top: 24px; }
+.footer-inner {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+  padding: 24px 0;
+}
+.footer-col h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.footer-col a { color: var(--muted); }
+.footer-bottom { border-top: 1px solid var(--line); padding: 12px 0; font-size: .92rem; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+/* 13) Responsive ajustes */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .filters { top: 64px; }
+}
+
+/* Layout base */
+.site-header { position: sticky; top: 0; z-index: 50; background:#fff; border-bottom:1px solid #f6d5e6; }
+.container { width:92%; max-width:1100px; margin:0 auto; }
+
+.nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0; }
+.brand { display:flex; align-items:center; gap:12px; }
+.logo { width:48px; height:48px; border-radius:50%; object-fit:cover; }
+.title { font-weight:700; font-size:1.1rem; color:#6b2e5e; }
+
+/* Menú (desktop) */
+.menu { display:flex; align-items:center; gap:16px; }
+.menu a { padding:8px 10px; border-radius:10px; color:#3b3b3b; text-decoration:none; }
+.menu a:hover { background:#fdeef4; }
+
+/* Carrito */
+.btn-cart { display:inline-flex; align-items:center; gap:8px; background:#f48fb1; color:#fff; padding:8px 12px; border-radius:12px; }
+.btn-cart .count { display:inline-block; min-width:18px; padding:0 6px; border-radius:9px; background:#fff; color:#bf2b63; font-weight:700; text-align:center; }
+
+/* Botón hamburguesa (mobile) */
+.nav-toggle { display:none; width:42px; height:36px; border:none; background:transparent; cursor:pointer; position:relative; }
+.nav-toggle .bar { display:block; height:2px; margin:7px 0; background:#6b2e5e; transition:transform .25s, opacity .25s; }
+
+/* --- Responsive --- */
+@media (max-width: 820px) {
+  .logo { width:40px; height:40px; }
+  .title { font-size:1rem; }
+
+  /* Mostrar hamburguesa y colapsar menú */
+  .nav-toggle { display:block; }
+  .menu {
+    position: absolute;
+    left:0; right:0; top:100%;
+    background:#fff;
+    border-bottom:1px solid #f6d5e6;
+    display:none;                /* oculto por defecto */
+    flex-direction:column;
+    gap:0;
+    padding:8px 0;
+  }
+  .menu a, .menu .btn-cart { width:100%; border-radius:0; padding:12px 20px; }
+  .menu .btn-cart { justify-content:flex-start; border-top:1px solid #fdeef4; }
+
+  /* estado abierto */
+  .menu.open { display:flex; }
+
+  /* animación del ícono */
+  .nav-toggle.active .bar:nth-child(1) { transform:translateY(9px) rotate(45deg); }
+  .nav-toggle.active .bar:nth-child(2) { opacity:0; }
+  .nav-toggle.active .bar:nth-child(3) { transform:translateY(-9px) rotate(-45deg); }
+}
+
+/* Header: aseguro referencia para .menu absolute */
+.nav { position: relative; }
+
+/* Menú móvil: que quede por encima del contenido */
+@media (max-width: 820px) {
+  .menu {
+    z-index: 60;
+  }
+}
+
+/* Hero: tipografías y espacios en móviles chicos */
+@media (max-width: 600px) {
+  .topbar { font-size: .9rem; padding: 6px 8px; }
+
+  .hero { padding: 28px 0 12px; }
+  .hero h1 { font-size: clamp(1.4rem, 5.2vw, 1.9rem); }
+  .hero p { font-size: .98rem; }
+  .hero .cta { padding: 10px 14px; border-radius: 10px; }
+
+  /* Imagen del hero (banner) */
+  .hero .mock {
+    width: 100%;
+    max-width: 520px;
+    margin: 10px auto 0;
+    display: block;
+  }
+}
+
+/* Productos: cartas un poco más compactas en muy chico */
+@media (max-width: 480px) {
+  .grid { gap: 12px; }
+  .card img { height: 220px; } /* antes 300px */
+  .card .info { padding: 10px; }
+  .price { font-size: 1rem; }
+}
+
+/* Badges de confianza a una columna en chica */
+@media (max-width: 700px) {
+  .badges { grid-template-columns: 1fr; }
+}
+
+/* Footer: más aire y mejor legibilidad en mobile */
+@media (max-width: 600px) {
+  .footer-inner { gap: 12px; }
+  .footer-col h4 { font-size: 1rem; }
+  .footer-bottom { font-size: .9rem; }
+}

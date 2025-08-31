@@ -1,112 +1,209 @@
 <!doctype html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chocopostres.Caro — Postres y Repostería</title>
-  <meta name="description" content="Postres caseros, tartas y shots dulces en San Martín. Pedidos por WhatsApp. Chocopostres.Caro" />
-  <meta property="og:title" content="Chocopostres.Caro — Postres y Repostería" />
-  <meta property="og:description" content="Postres caseros, tartas y shots dulces en San Martín. Pedidos por WhatsApp." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#8b5cf6" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chocopostres Caro — Postres, tartas y más</title>
+  <meta name="description"
+    content="Chocopostres Caro — postres, tartas, cookies y boxes. Envíos a San Martín y zonas cercanas.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23e56ca9%22/><text x=%2250%22 y=%2258%22 text-anchor=%22middle%22 font-size=%2250%22 fill=%22white%22 font-family=%22Arial%22>🍓</text></svg>">
+  <meta property="og:title" content="Chocopostres.Caro">
+  <meta property="og:description" content="Armá tu box dulce y pedilo por WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/og.jpg">
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">🍓</div>
-        <div>
-          <h1>Chocopostres.Caro</h1>
-          <small>Postres caseros en San Martín • <a class="link" href="https://www.instagram.com/chocopostres.caro/" target="_blank" rel="noopener">@chocopostres.caro</a></small>
+  <!-- Aviso superior / promos -->
+  <div class="topbar">
+    Mínimo de compra $6.500 · 10% OFF pagando por transferencia · Envíos 17:00–22:00 en San Martín
+  </div>
+
+  <!-- Header / nav -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principal">
+        <div class="brand">
+          <img src="images/logo.jpg" alt="Chocopostres Caro Logo" class="logo">
+          <a href="#" class="title">Chocopostres Caro</a>
         </div>
-      </div>
-      <div class="nav-actions">
-        <a class="btn ghost" href="#menu">Ver menú</a>
-        <a class="btn primary" id="ctaWhats">Pedir por WhatsApp</a>
-      </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+
+        <div class="menu" id="main-menu">
+          <a href="#productos">Productos</a>
+          <a href="#promos">Promos</a>
+          <a href="#como-comprar">Cómo comprar</a>
+          <a href="#zonas">Zonas de entrega</a>
+          <a href="#contacto">Contacto</a>
+          <a class="btn-cart" href="javascript:void(0)">
+            🛒 <span>Carrito</span> <span class="count">0</span>
+          </a>
+        </div>
+      </nav>
     </div>
   </header>
 
+
+
+  <!-- Hero -->
   <section class="hero">
-    <div class="container hero-card">
+    <div class="container hero-inner">
       <div>
-        <span class="kicker">dulce. casero. fresco.</span>
-        <h2>Endulzá tu día con nuestros postres ✨</h2>
-        <p>Frutillas con crema, chocotorta, tartas y más. Hacemos envíos en San Martín y zonas cercanas. Pedidos por WhatsApp.</p>
-        <div class="cta">
-          <a class="btn primary" href="#menu">Ver menú</a>
-          <a class="btn ghost" href="https://www.instagram.com/chocopostres.caro/" target="_blank" rel="noopener">Ver Instagram</a>
-          <span class="tag">⏱️ Listo en el día (según stock)</span>
-          <span class="tag">🚚 Envíos locales</span>
-        </div>
+        <h1>Dulce, fresco y al toque.<br>Tu postre favorito, hoy.</h1>
+        <p>Chocopostres Caro — elaboraciones artesanales: postres, tartas, cookies y boxes. Hacemos envíos de 17 a 22 hs
+          en San Martín.</p>
+        <a class="cta" href="#productos">Ver productos</a>
+        <a class="cta secondary" href="https://wa.me/5491157474821" target="_blank" rel="noopener">Consultar por
+          WhatsApp</a>
       </div>
-      <div>
-        <img alt="Postres caseros" src="data:image/svg+xml;utf8,          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'>            <defs>              <linearGradient id='g' x1='0' x2='1'>                <stop stop-color='%23c4b5fd' offset='0'/>                <stop stop-color='%23fbcfe8' offset='1'/>              </linearGradient>            </defs>            <rect width='600' height='400' fill='url(%23g)'/>            <g fill='%23ffffff' opacity='.85'>              <circle cx='520' cy='90' r='55'/>              <circle cx='480' cy='115' r='35'/>            </g>            <text x='40' y='300' font-family='Inter,Roboto,Segoe UI' font-weight='800' font-size='46' fill='%23111827'>Chocopostres</text>          </svg>" />
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="menu">
-    <div class="toolbar">
-      <div class="chips" id="chips"></div>
-      <input id="search" class="search" placeholder="Buscar (ej: frutillas, tarta, oreo)" />
+      <img src="images/Hero" alt="Imagen principal" class="mock">
     </div>
 
-    <div class="grid" id="grid"></div>
   </section>
 
-  <!-- Floating Cart Button -->
-  <button class="cart-fab" id="openCart" aria-label="Abrir carrito">
-    🧁 <span class="count" id="cartCount">0</span> <span id="cartTotal">$0</span>
-  </button>
-
-  <!-- WhatsApp quick -->
-  <a class="wa" id="waQuick" target="_blank" rel="noopener">WhatsApp</a>
-
-  <!-- Cart Modal -->
-  <div class="modal" id="modal">
-    <div class="backdrop" id="closeModal"></div>
-    <div class="sheet">
-      <header>
-        <div class="header">
-          <strong>🧺 Tu pedido</strong>
-          <button class="btn ghost" id="closeX">Cerrar</button>
-        </div>
-      </header>
-      <div class="body">
-        <div id="cartList"></div>
-        <div class="total">
-          <div>
-            <div>Total</div>
-            <small class="muted">Los precios son orientativos. Confirmamos por WhatsApp.</small>
-          </div>
-          <div id="cartSum">$0</div>
-        </div>
-        <div class="row" style="margin-top:14px">
-          <input id="buyerName" class="search" style="max-width:320px" placeholder="Tu nombre" />
-          <select id="delivery" style="max-width:220px">
-            <option value="Retiro por el local">Retiro por el local</option>
-            <option value="Envío a domicilio">Envío a domicilio</option>
-          </select>
-          <input id="timePref" class="search" style="max-width:220px" placeholder="Horario preferido" />
-        </div>
-      </div>
-      <footer>
-        <button class="btn ghost" id="clearCart">Vaciar</button>
-        <button class="btn primary" id="goWhats">Finalizar por WhatsApp</button>
-      </footer>
+  <!-- Filtros -->
+  <div class="filters" id="productos">
+    <div class="container">
+      <div class="wrap"></div>
     </div>
   </div>
 
-  <footer class="container">
-    <div class="foot">
-      <div>📍 San Martín y zonas cercanas • 📞 <a class="link" id="phoneLink"></a></div>
-      <div>📷 Instagram: <a class="link" href="https://www.instagram.com/chocopostres.caro/" target="_blank" rel="noopener">@chocopostres.caro</a></div>
-      <div>Hecho con ♥ — Actualizá precios y stock en <strong>app.js ➜ productos[]</strong>.</div>
+  <!-- Productos -->
+  <section class="products">
+    <div class="container">
+      <div class="grid"></div>
+
+      <div class="badges">
+        <div class="badge">
+          <div>🚚</div>
+          <h4>Envíos a domicilio</h4>
+          <p>San Martín y alrededores. 17:00–22:00 hs.</p>
+        </div>
+        <div class="badge">
+          <div>💬</div>
+          <h4>WhatsApp directo</h4>
+          <p>Consultanos lo que quieras. Respuesta rápida.</p>
+        </div>
+        <div class="badge">
+          <div>🔒</div>
+          <h4>Compra segura</h4>
+          <p>Datos protegidos y métodos confiables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promos -->
+  <section class="section" id="promos">
+    <div class="container">
+      <h2>Promos</h2>
+      <div class="card-simple">
+        <p><strong>Promo 3 shots a elección:</strong> $7.500 — Envío gratis en San Martín.</p>
+        <p><em>*Válido hasta el domingo.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo comprar -->
+  <section class="section" id="como-comprar">
+    <div class="container">
+      <h2>¿Cómo comprar?</h2>
+      <div class="card-simple">
+        <ol>
+          <li>Elegí tus productos y agregalos al carrito.</li>
+          <li>Presioná <strong>“Enviar pedido por WhatsApp”</strong> para confirmar.</li>
+          <li>Coordinamos horario de entrega (17 a 22 hs) o retirá cuando quieras.</li>
+          <li>Pagás con transferencia (10% OFF) o efectivo.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zonas de entrega -->
+  <section class="section" id="zonas">
+    <div class="container">
+      <h2>Zonas de entrega</h2>
+      <div class="card-simple">
+        <p>San Martín (centro y alrededores). Consultá por otras zonas y costo de envío.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="card-simple">
+        <p>WhatsApp: <a href="https://wa.me/5491157474821" target="_blank" rel="noopener">+54 9 11 5747‑4821</a></p>
+        <p>Instagram: <a href="https://instagram.com/chocopostres.caro" target="_blank"
+            rel="noopener">@chocopostres.caro</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>Chocopostres Caro</h4>
+        <p>Postres y tartas artesanales. Envíos en San Martín.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#promos">Promos</a></li>
+          <li><a href="#como-comprar">Cómo comprar</a></li>
+          <li><a href="#zonas">Zonas de entrega</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atención</h4>
+        <ul>
+          <li>Mar a Dom 17:00–22:00</li>
+          <li>Lun cerrado</li>
+          <li>San Martín, Buenos Aires</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© <span id="y"></span> Chocopostres Caro</div>
+      <div>Hecho con ❤️ en Buenos Aires</div>
     </div>
   </footer>
 
-  <script src="app.js" defer></script>
+  <!-- Modal carrito -->
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal" role="dialog" aria-label="Carrito">
+    <header>
+      <div class="head">
+        <strong>Tu carrito</strong>
+        <div style="display:flex; gap:8px">
+          <button class="btn close" data-close>Cerrar</button>
+        </div>
+      </div>
+    </header>
+    <div class="content"></div>
+    <div class="cart-total">
+      <div>Total</div>
+      <div class="total">$0</div>
+    </div>
+    <div class="actions">
+      <button class="btn whatsapp" data-wa>Enviar pedido por WhatsApp</button>
+      <button class="btn clear" data-clear>Vaciar carrito</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
+
 </html>
