@@ -1,7 +1,7 @@
 
 // =================== CONFIG ===================
 const WHATSAPP_NUMBER = "5491157474821"; // formato wa.me (sin +)
-const BRAND = "Chocopostres.Caro";
+const BRAND = "Chocopostres Caro";
 const CATEGORIES = ["Todos","Postres","Shots","Tartas","Tortas","Boxes","Cookies"];
 
 // =================== DATA ===================
@@ -94,10 +94,21 @@ function clearCart() {
   renderCart();
 }
 
-function openCart(open=true) {
-  $(".modal").style.display = open ? "flex" : "none";
-  $(".modal-backdrop").style.display = open ? "block" : "none";
+function openCart(open = true) {
+  const modal = document.querySelector(".modal");
+  const backdrop = document.querySelector(".modal-backdrop");
+
+  if (open) {
+    modal.style.display = "flex";
+    backdrop.style.display = "block";
+    document.body.classList.add("modal-open");   // <<--- acá
+  } else {
+    modal.style.display = "none";
+    backdrop.style.display = "none";
+    document.body.classList.remove("modal-open"); // <<--- y acá
+  }
 }
+
 
 function renderCart() {
   const body = $(".modal .content");
@@ -137,8 +148,7 @@ function buildWhatsAppMessage() {
   if (!entries.length) return "";
   const lines = entries.map(({qty, prod}) => `• ${prod.nombre} x${qty} — ${fmt(prod.precio)} c/u`);
   const total = entries.reduce((a,x)=>a + x.qty * x.prod.precio, 0);
-  const text = `Hola! Quiero hacer este pedido en *${BRAND}*:%0A%0A${lines.join("%0A")}%0A%0ATotal: *${fmt(total)}*%0A%0A` +
-               `Zona: [San Martín / ...]%0AEntrega: [Hoy 20-00hs / Retiro]%0ANombre:`;
+  const text = `Hola! Quiero hacer este pedido en *${BRAND}*:%0A%0A${lines.join("%0A")}%0A%0ATotal: *${fmt(total)}*%0A%0A`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
 
@@ -154,6 +164,10 @@ document.addEventListener("click", (e) => {
   if (open) openCart(true);
 
   if (e.target.matches("[data-close]")) openCart(false);
+
+  document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") openCart(false);
+});
 
   if (e.target.matches("[data-clear]")) clearCart();
 

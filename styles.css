@@ -339,3 +339,56 @@ footer { background: #fff; border-top: 1px solid var(--line); margin-top: 24px; 
   .footer-col h4 { font-size: 1rem; }
   .footer-bottom { font-size: .9rem; }
 }
+
+/* --- Capas (z-index) --- */
+:root{
+  --z-header: 50;
+  --z-filters: 60;
+  --z-menu: 70;
+  --z-backdrop: 900;
+  --z-modal: 1000;
+}
+
+/* Asegurar z-index de elementos sticky */
+.site-header{ z-index: var(--z-header); }
+.filters{ position: sticky; top: 0; z-index: var(--z-filters); }
+
+/* Menú móvil por debajo del modal */
+@media (max-width: 820px){
+  .menu{ z-index: var(--z-menu); }
+}
+
+/* Backdrop del modal SIEMPRE arriba de todo */
+.modal-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: var(--z-backdrop);
+}
+
+/* Panel del carrito */
+.modal{
+  position: fixed;
+  top: 80px;              /* ajustá según la altura de tu header */
+  right: 12px;
+  width: min(420px, 92vw);
+  max-height: calc(100dvh - 100px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+  z-index: var(--z-modal);
+  transform: translateY(-6px);
+}
+
+/* Estados (agregados por JS) */
+body.modal-open .modal-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+body.modal-open{
+  overflow: hidden; /* bloquea scroll del fondo */
+}
